@@ -105,14 +105,14 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp -1, colunacomp)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                print (group)
-                print("gordo")
+                #print (group)
+                #print("gordo")
                 if(lista(group,pos) == True):
-                    print ("hallo")
+                    #print ("hallo")
                     group = [group + [poscomp]]
                     possiveisgruposlinhas(tab, poscomp, group)
                 else:
-                    print("noiceee")
+                    #print("noiceee")
                     group = group + [[pos, poscomp]]
                     possiveisgruposlinhas(tab, poscomp, group)
 
@@ -127,15 +127,15 @@ def possiveisgruposlinhas(tab, pos, group):
             if(lista(group,poscomp) == False and is_peg(cor(tab, posmeio)) and is_peg(cor(tab, pos)) and is_empty(cor(tab, poscomp))):
                 group = [group + [poscomp]]
                 possiveisgruposlinhas(tab, poscomp, group)
-                print("gordo4")
+                #print("gordo4")
 
     return group
 
 def checksize(group):
     for i in range(0,len(group)):
             if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
-                print(group[i])
-                print("AQUIII")
+                #print(group[i])
+                #print("AQUIII")
                 return False
 
 def board_moves(tab):
@@ -147,13 +147,14 @@ def board_moves(tab):
                 group = [pos]
                 group = possiveisgruposlinhas(tab,pos,group)
                 if grupo(final,group) == False and checksize(group) == False:
-                    print("entrei")
+                    #print("entrei")
                     final += group
 
     return final
 
 def board_perform_move(tab, move):
-    res = tab
+    res = []
+    res = copy.deepcopy(tab)
     initial_pos = move_initial(move)
     final_pos = move_final(move)
 
@@ -177,18 +178,7 @@ def board_perform_move(tab, move):
             res[pos_c(initial_pos)][pos_l(initial_pos) + 1] = '_'
             res[pos_c(initial_pos)][pos_l(final_pos)] = 'O'
 
-    print('printing result')
-    for i in res:
-        print(i)
+    
     return res
 
 
-if __name__ == '__main__':
-    tab = [["_","O","O","O","_"], ["O","_","O","_","O"], ["_","O","_","O","_"],
-    ["O","_","O","_","_"], ["_","O","_","_","_"]]
-
-    for j in tab:
-        print(j)
-
-    moves = board_moves(tab)
-    board_perform_move(tab, moves[0])
