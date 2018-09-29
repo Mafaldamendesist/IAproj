@@ -94,6 +94,32 @@ def possiveisgruposlinhas(tab, pos, group):
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
                     group = group + [[pos,poscomp]]
                     possiveisgruposlinhas(tab, poscomp, group)
+    #procurabaixo
+    linhacomp= linha + 2
+    colunacomp=coluna
+    if (colunacomp >= 0 and linhacomp >= 0):
+        if(linhacomp < linhastab(tab) and colunacomp < colunastab(tab)):
+            poscomp= make_pos(linhacomp, colunacomp)
+            posmeio= make_pos(linhacomp-1, colunacomp)
+            if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
+                print (group)
+                print("gordo")
+                group = group + [[pos, poscomp]]
+                print(group)
+                print("final")
+                possiveisgruposlinhas(tab, poscomp, group)    
+                                      
+                                
+    #procuracima
+    linhacomp=linha-2
+    colunacomp=coluna
+    if (colunacomp >= 0 and linhacomp >= 0):
+        if(linhacomp < linhastab(tab) and colunacomp < colunastab(tab)):
+            poscomp= make_pos(linhacomp, colunacomp)
+            posmeio= make_pos(linhacomp+1, colunacomp)
+            if(lista(group,poscomp) == False and is_peg(cor(tab, posmeio)) and is_peg(cor(tab, pos)) and is_empty(cor(tab, poscomp))):
+                group = [group + [poscomp]]
+                possiveisgruposlinhas(tab, poscomp, group)  
                             
     return group
 
@@ -103,28 +129,7 @@ def gruposcolunas(tab,pos,group):
     
     if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1): 
         return    
-    #procurabaixo
-    linhacomp= linha + 2
-    colunacomp=coluna
-    if (colunacomp >= 0 and linhacomp >= 0):
-        if(linhacomp < linhastab(tab) and colunacomp < colunastab(tab)):
-            poscomp= make_pos(linhacomp, colunacomp)
-            posmeio= make_pos(linhacomp-1, colunacomp)
-            if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                group = [group + [poscomp]]
-                possiveisgruposlinhas(tab, poscomp, group)    
-                      
-                
-    #procuracima
-    linhacomp=linha-2
-    colunacomp=coluna
-    if (colunacomp >= 0 and linhacomp >= 0):
-        if(linhacomp < linhastab(tab) and colunacomp < colunastab(tab)):
-            poscomp= make_pos(linhacomp, colunacomp)
-            posmeio= make_pos(linhacomp+1, colunacomp)
-            if(lista(group,poscomp) == False and is_peg(cor(tab, posmeio)) and is_peg(cor(tab, pos)) and is_empty(cor(tab, poscomp))):
-                group = group + [[pos,poscomp]]
-                possiveisgruposlinhas(tab, poscomp, group)   
+     
     return group
 
 def board_moves(tab):
