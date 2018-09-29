@@ -81,7 +81,7 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp, colunacomp+1)
             if(lista(group,poscomp) == False and is_peg(cor(tab,pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                group += [poscomp] 
+                group = [group + [poscomp]]
                 possiveisgruposlinhas(tab, poscomp, group)
 
     #procuradireita
@@ -92,9 +92,17 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp, colunacomp-1)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                    group += [pos,poscomp]
+                    group = group + [[pos,poscomp]]
                     possiveisgruposlinhas(tab, poscomp, group)
                             
+    return group
+
+def gruposcolunas(tab,pos,group):
+    linha = pos_l(pos)
+    coluna = pos_c(pos)
+    
+    if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1): 
+        return    
     #procurabaixo
     linhacomp= linha + 2
     colunacomp=coluna
@@ -103,7 +111,7 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp-1, colunacomp)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                group += [pos,poscomp]
+                group = [group + [poscomp]]
                 possiveisgruposlinhas(tab, poscomp, group)    
                       
                 
@@ -115,10 +123,8 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp+1, colunacomp)
             if(lista(group,poscomp) == False and is_peg(cor(tab, posmeio)) and is_peg(cor(tab, pos)) and is_empty(cor(tab, poscomp))):
-                group += [pos,poscomp]
-                possiveisgruposlinhas(tab, poscomp, group)
-
-
+                group = group + [[pos,poscomp]]
+                possiveisgruposlinhas(tab, poscomp, group)   
     return group
 
 def board_moves(tab):
@@ -128,9 +134,10 @@ def board_moves(tab):
             pos = make_pos(i,j)
             if(cor(tab,pos) != 0):
                 group = [pos]
-                group = possiveisgruposlinhas(tab,pos,group)
-                if grupo(final,group) == False and len(group) > 2:
-                    final += [group]
+                group = possiveisgruposlinhas(tab,pos,group) 
+                if grupo(final,group) == False and len(group) > 1:
+                    final += group                
+                             
     return final
 
 
