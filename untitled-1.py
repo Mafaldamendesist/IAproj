@@ -123,15 +123,6 @@ def possiveisgruposlinhas(tab, pos, group):
                             
     return group
 
-def gruposcolunas(tab,pos,group):
-    linha = pos_l(pos)
-    coluna = pos_c(pos)
-    
-    if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1): 
-        return    
-     
-    return group
-
 def board_moves(tab):
     final = []
     for i in range(0,linhastab(tab)):
