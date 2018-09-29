@@ -1,6 +1,5 @@
-from search import *
-from utils import *
-import copy
+
+
 
 #TAI content
 def c_peg ():
