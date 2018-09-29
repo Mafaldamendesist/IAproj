@@ -59,11 +59,10 @@ def grupo(final,group):
                     return True
         else:
             if i == group:
-                return True  
+                return True
     if len(group) >= 1:
         group = group[0]    
     return False 
-
 def possiveisgruposlinhas(tab, pos, group):
     
     
@@ -81,8 +80,9 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp, colunacomp+1)
             if(lista(group,poscomp) == False and is_peg(cor(tab,pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                group = [group + [poscomp]]
+                group = [group + [poscomp]]               
                 possiveisgruposlinhas(tab, poscomp, group)
+                
 
     #procuradireita
     colunacomp = coluna +2
@@ -92,22 +92,27 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp, colunacomp-1)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                    group = group + [[pos,poscomp]]
+                    group = group + [[pos,poscomp]]                  
                     possiveisgruposlinhas(tab, poscomp, group)
+                    
     #procurabaixo
     linhacomp= linha + 2
     colunacomp=coluna
     if (colunacomp >= 0 and linhacomp >= 0):
         if(linhacomp < linhastab(tab) and colunacomp < colunastab(tab)):
             poscomp= make_pos(linhacomp, colunacomp)
-            posmeio= make_pos(linhacomp-1, colunacomp)
+            posmeio= make_pos(linhacomp -1, colunacomp)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
                 print (group)
                 print("gordo")
-                group = group + [[pos, poscomp]]
-                print(group)
-                print("final")
-                possiveisgruposlinhas(tab, poscomp, group)    
+                if(lista(group,pos) == True):
+                    print ("hallo")
+                    group = [group + [poscomp]]
+                    possiveisgruposlinhas(tab, poscomp, group)
+                else:
+                    print("noiceee")
+                    group = group + [[pos, poscomp]]
+                    possiveisgruposlinhas(tab, poscomp, group)
                                       
                                 
     #procuracima
@@ -120,6 +125,7 @@ def possiveisgruposlinhas(tab, pos, group):
             if(lista(group,poscomp) == False and is_peg(cor(tab, posmeio)) and is_peg(cor(tab, pos)) and is_empty(cor(tab, poscomp))):
                 group = [group + [poscomp]]
                 possiveisgruposlinhas(tab, poscomp, group)  
+                print("gordo4")
                             
     return group
 
