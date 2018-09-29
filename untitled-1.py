@@ -1,4 +1,4 @@
-
+import copy
 #TAI content
 def c_peg ():
     return "O"
@@ -154,7 +154,7 @@ def board_moves(tab):
 
 def board_perform_move(tab, move):
     res = []
-    res = copy.deepcopy(tab)
+    res = copy.deepcopy(tab) 
     initial_pos = move_initial(move)
     final_pos = move_final(move)
 
