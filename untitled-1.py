@@ -60,6 +60,7 @@ def grupo(final,group):
         else:
             if i == group:
                 return True
+    
     if len(group) >= 1:
         group = group[0]    
     return False 
@@ -129,6 +130,12 @@ def possiveisgruposlinhas(tab, pos, group):
                             
     return group
 
+def checksize(group):
+    for i in range(0,len(group)):
+            if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
+                print(group[i])
+                print("AQUIII")
+                return False 
 def board_moves(tab):
     final = []
     for i in range(0,linhastab(tab)):
@@ -137,7 +144,8 @@ def board_moves(tab):
             if(cor(tab,pos) != 0):
                 group = [pos]
                 group = possiveisgruposlinhas(tab,pos,group) 
-                if grupo(final,group) == False and len(group) > 1:
+                if grupo(final,group) == False and checksize(group) == False: 
+                    print("entrei")
                     final += group                
                              
     return final
