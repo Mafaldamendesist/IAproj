@@ -1,4 +1,6 @@
 import copy
+from search import *
+from utils import *
 #TAI content
 def c_peg ():
     return "O"
@@ -180,5 +182,58 @@ def board_perform_move(tab, move):
 
     
     return res
+class sol_state:
+    def __init__(self,board):
+        self.board = board
+        
+    def actions_aux(self): #idk
+        find = board_moves(self.board)
+        actions = []
+        for i in find:
+            if len(i) > 1:
+                actions += [i]
+        return actions
+    
+    def act_size(self):
+        return len(self.actions_aux())
 
+    def __lt__(self,other_state):
+        return self.act_size()  > other_state.act_size()
+    
+    def test(self):
+        for i in range(0,linhastab(self.board)):
+            for j in range(0,colunastab(self.board)):
+                pos = make_pos(i,j)
+                if is_empty(cor(self.board,pos)) == False:
+                    return False
+        return True
+    
+    def result_aux(self,action):
+        r = board_perform_move(self.board,action)
+        return sol_state(r)
+    
+
+class solitaire(Problem):
+    
+    def __init__(self, board):
+        self.initial = sol_state(board)
+        
+    def actions(self, state):
+        return state.actions_aux()
+    
+    def result(self, state, action):
+        return state.result_aux(action) 
+        
+    def goal_test(self, state):
+        return state.test()  
+        
+    def path_cost(self, c, state1, action, state2):
+        return c + 1
+        
+    def h(self, node):
+        acth = board_moves(node.state.board)
+        return len(acth)
+
+def greedy_search(solitaire):
+        return best_first_graph_search(solitaire, solitaire.h)
 
