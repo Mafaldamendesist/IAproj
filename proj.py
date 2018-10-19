@@ -1,29 +1,18 @@
 import copy
-import search
-import utils
 from search import *
 from utils import *
 
-#================================================================
-#   Functions to manipulate or consult board
-#================================================================
-#TAI space
-#Peg
+#TAI content
 def c_peg ():
     return "O"
-#Empty Space
 def c_empty ():
     return "_"
-#Interdite Space
 def c_blocked ():
     return "X"
-#If space is empty returns True
 def is_empty (e):
     return e == c_empty()
-#If space has a peg returns True
 def is_peg (e):
     return e == c_peg()
-#If space is blocked returns True
 def is_blocked (e):
     return e == c_blocked()
 
@@ -31,10 +20,8 @@ def is_blocked (e):
 # Tuplo (l, c)
 def make_pos (l, c):
     return (l, c)
-#Line from position
 def pos_l (pos):
     return pos[0]
-#collumn from position
 def pos_c (pos):
     return pos[1]
 
@@ -42,27 +29,22 @@ def pos_c (pos):
 # Lista [p_initial, p_final]
 def make_move (i,f):
     return [i,f]
-#Beginning position
 def move_initial (move):
     return move[0]
-#Final position
 def move_final (move):
     return move[1]
 
-#Number of lines of table
 def linhastab(tab):
     return len(tab)
-#Number of collumns of table
+
 def colunastab(tab):
     return len(tab[0])
 
-#Element of table on that position
 def cor(tab,pos):
     linha = pos_l(pos)
     coluna = pos_c(pos)
     return tab[linha][coluna]
 
-#Returns True if that position in inside the range of table (CORRIGIR ACHO QUE ESTÁ MAL)
 def lista(tab,pos):
     for i in tab:
         if i == pos:
@@ -81,6 +63,7 @@ def grupo(final,group):
         else:
             if i == group:
                 return True
+
 
     if len(group) >= 1:
         group = group[0]
@@ -106,7 +89,6 @@ def possiveisgruposlinhas(tab, pos, group):
                 group = [group + [poscomp]]
                 possiveisgruposlinhas(tab, poscomp, group)
 
-
     #procuradireita
     colunacomp = coluna +2
     linhacomp=linha
@@ -115,28 +97,27 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp, colunacomp-1)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                    group = group + [[pos,poscomp]]
-                    possiveisgruposlinhas(tab, poscomp, group)
+                group = group + [[pos,poscomp]]
+                possiveisgruposlinhas(tab, poscomp, group)
 
     #procurabaixo
     linhacomp= linha + 2
     colunacomp=coluna
     if (colunacomp >= 0 and linhacomp >= 0):
         if(linhacomp < linhastab(tab) and colunacomp < colunastab(tab)):
+
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp -1, colunacomp)
             if(lista(group,poscomp) == False and is_peg(cor(tab, pos)) and is_peg(cor(tab, posmeio)) and is_empty(cor(tab, poscomp))):
-                #print (group)
-                #print("gordo")
                 if(lista(group,pos) == True):
+                    #print (group)
                     #print ("hallo")
-                    group = [group + [poscomp]]
+                    group = group + [[pos] + [poscomp]]
                     possiveisgruposlinhas(tab, poscomp, group)
                 else:
                     #print("noiceee")
                     group = group + [[pos, poscomp]]
                     possiveisgruposlinhas(tab, poscomp, group)
-
 
     #procuracima
     linhacomp=linha-2
@@ -146,18 +127,28 @@ def possiveisgruposlinhas(tab, pos, group):
             poscomp= make_pos(linhacomp, colunacomp)
             posmeio= make_pos(linhacomp+1, colunacomp)
             if(lista(group,poscomp) == False and is_peg(cor(tab, posmeio)) and is_peg(cor(tab, pos)) and is_empty(cor(tab, poscomp))):
-                group = [group + [poscomp]]
-                possiveisgruposlinhas(tab, poscomp, group)
-                #print("gordo4")
+                if(lista(group,pos) == True):
+                    #print (group)
+                    #print ("hallo")
+                    group = group + [[pos] + [poscomp]]
+                    possiveisgruposlinhas(tab, poscomp, group)
+                else:
+                    #print("noiceee")
+                    group = group + [[pos, poscomp]]
+                    possiveisgruposlinhas(tab, poscomp, group)
+                     #print("gordo4")
 
     return group
 
 def checksize(group):
     for i in range(0,len(group)):
-            if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
-                #print(group[i])
-                #print("AQUIII")
+        if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
                 return False
+        if(isinstance(group[i], tuple)==True):
+            del group[i]
+            return False
+
+
 
 def board_moves(tab):
     final = []
@@ -168,8 +159,10 @@ def board_moves(tab):
                 group = [pos]
                 group = possiveisgruposlinhas(tab,pos,group)
                 if grupo(final,group) == False and checksize(group) == False:
+
                     #print("entrei")
                     final += group
+
 
     return final
 
@@ -201,7 +194,6 @@ def board_perform_move(tab, move):
 
 
     return res
-
 class sol_state:
     def __init__(self,board):
         self.board = board
