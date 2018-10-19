@@ -174,26 +174,27 @@ def board_perform_move(tab, move):
 
     if(pos_l(initial_pos) == pos_l(final_pos) and pos_c(initial_pos) != pos_c(final_pos)):
         res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
 
         if(pos_c(initial_pos) > pos_c(final_pos)):
             res[pos_l(initial_pos)][pos_c(initial_pos) - 1] = '_'
-            res[pos_l(initial_pos)][pos_c(final_pos)] = 'O'
 
         elif(pos_c(initial_pos) < pos_c(final_pos)):
             res[pos_l(initial_pos)][pos_c(initial_pos) + 1] = '_'
-            res[pos_l(initial_pos)][pos_c(final_pos)] = 'O'
 
     elif(pos_l(initial_pos) != pos_l(final_pos) and pos_c(initial_pos) == pos_c(final_pos)):
+        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
+
         if(pos_l(initial_pos) > pos_l(final_pos)):
-            res[pos_c(initial_pos)][pos_l(initial_pos) - 1] = '_'
-            res[pos_c(initial_pos)][pos_l(final_pos)] = 'O'
+            res[pos_l(initial_pos) - 1][pos_c(initial_pos)] = '_'
 
         elif(pos_l(initial_pos) < pos_l(final_pos)):
-            res[pos_c(initial_pos)][pos_l(initial_pos) + 1] = '_'
-            res[pos_c(initial_pos)][pos_l(final_pos)] = 'O'
-
+            res[pos_l(initial_pos) + 1][pos_c(initial_pos)] = '_'
 
     return res
+
+
 class sol_state:
     def __init__(self,board):
         self.board = board
