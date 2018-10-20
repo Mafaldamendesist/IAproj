@@ -168,26 +168,34 @@ def board_moves(tab):
 def board_perform_move(tab, move):
     res = []
     res = copy.deepcopy(tab)
+    
     initial_pos = move_initial(move)
     final_pos = move_final(move)
-    res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
-    res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
     
-    if(pos_l(initial_pos) == pos_l(final_pos) and pos_c(initial_pos) != pos_c(final_pos)):
+    pos_l_initial= pos_l(initial_pos)
+    pos_l_final= pos_l(final_pos)
+    pos_c_initial= pos_c(initial_pos)
+    pos_c_final = pos_c(final_pos)
+    
+    res[pos_l_initial][pos_c_initial] = '_'
+    res[pos_l_final][pos_c_final] = 'O'
+    
+    
+    if(pos_l_initial == pos_l_final and pos_c_initial != pos_c_final):
         
-        if(pos_c(initial_pos) > pos_c(final_pos)):
-            res[pos_l(initial_pos)][pos_c(initial_pos) - 1] = '_'
+        if( pos_c_initial > pos_c_final):
+            res[pos_l_initial][pos_c_initial - 1] = '_'
 
         else:
-            res[pos_l(initial_pos)][pos_c(initial_pos) + 1] = '_'
+            res[pos_l_initial][pos_c_initial+ 1] = '_'
 
-    elif(pos_l(initial_pos) != pos_l(final_pos) and pos_c(initial_pos) == pos_c(final_pos)):
+    elif(pos_l_initial != pos_l_final and pos_c_initial == pos_c_final):
 
-        if(pos_l(initial_pos) > pos_l(final_pos)):
-            res[pos_l(initial_pos) - 1][pos_c(initial_pos)] = '_'
+        if(pos_l_initial > pos_l_final):
+            res[pos_l_initial - 1][pos_c_initial] = '_'
 
         else:
-            res[pos_l(initial_pos) + 1][pos_c(initial_pos)] = '_'
+            res[pos_l_initial + 1][pos_c_initial] = '_'
 
     return res
 
@@ -220,11 +228,8 @@ class sol_state:
         return self.act_size()  > other_state.act_size()
 
     def test(self):
-        for i in range(0,linhastab(self.board)):
-            for j in range(0,colunastab(self.board)):
-                pos = make_pos(i,j)
-                if checkempty(self.board) > 1:
-                    return False
+        if checkempty(self.board) > 1:
+            return False
         return True
 
     def result_aux(self,action):
