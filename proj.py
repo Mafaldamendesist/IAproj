@@ -250,7 +250,6 @@ class solitaire(Problem):
 def greedy_search(solitaire):
         return best_first_graph_search(solitaire, solitaire.h)
 
-
 '''
 - Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.
 - Procura em profundidade é preferível, pois já sabemos que o máximo de profundidade que a árvore vai ter é N, sendo N o número de peças.
