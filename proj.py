@@ -2,6 +2,7 @@ import copy
 from search import *
 from utils import *
 
+
 #TAI content
 def c_peg ():
     return "O"
@@ -63,7 +64,12 @@ def grupo(final,group):
         else:
             if i == group:
                 return True
-
+    for i in range(0,len(group)):
+        if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
+            return False
+        if(isinstance(group[i], tuple)==True):
+            del group[i]
+            return False
 
     if len(group) >= 1:
         group = group[0]
@@ -140,13 +146,6 @@ def possiveisgruposlinhas(tab, pos, group):
 
     return group
 
-def checksize(group):
-    for i in range(0,len(group)):
-        if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
-                return False
-        if(isinstance(group[i], tuple)==True):
-            del group[i]
-            return False
 
 
 
@@ -158,7 +157,7 @@ def board_moves(tab):
             if(cor(tab,pos) != 0):
                 group = [pos]
                 group = possiveisgruposlinhas(tab,pos,group)
-                if grupo(final,group) == False and checksize(group) == False:
+                if grupo(final,group) == False:
 
                     #print("entrei")
                     final += group
@@ -171,36 +170,43 @@ def board_perform_move(tab, move):
     res = copy.deepcopy(tab)
     initial_pos = move_initial(move)
     final_pos = move_final(move)
+    res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+    res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
 
     if(pos_l(initial_pos) == pos_l(final_pos) and pos_c(initial_pos) != pos_c(final_pos)):
-        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
-        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
 
         if(pos_c(initial_pos) > pos_c(final_pos)):
             res[pos_l(initial_pos)][pos_c(initial_pos) - 1] = '_'
 
-        elif(pos_c(initial_pos) < pos_c(final_pos)):
+        else:
             res[pos_l(initial_pos)][pos_c(initial_pos) + 1] = '_'
 
     elif(pos_l(initial_pos) != pos_l(final_pos) and pos_c(initial_pos) == pos_c(final_pos)):
-        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
-        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
 
         if(pos_l(initial_pos) > pos_l(final_pos)):
             res[pos_l(initial_pos) - 1][pos_c(initial_pos)] = '_'
 
-        elif(pos_l(initial_pos) < pos_l(final_pos)):
+        else:
             res[pos_l(initial_pos) + 1][pos_c(initial_pos)] = '_'
 
     return res
 
+def checkempty(tab):
+    count = 0
+    for i in range(0,linhastab(tab)):
+        for j in range(0,colunastab(tab)):
+            pos = make_pos(i,j)
+            if (is_peg(cor(tab,pos))):
+                count = count + 1
+    return count
 
 class sol_state:
     def __init__(self,board):
         self.board = board
 
     def actions_aux(self): #idk
-        find = board_moves(self.board)
+        find = []
+        find= copy.deepcopy(board_moves(self.board))
         actions = []
         for i in find:
             if len(i) > 1:
@@ -217,7 +223,7 @@ class sol_state:
         for i in range(0,linhastab(self.board)):
             for j in range(0,colunastab(self.board)):
                 pos = make_pos(i,j)
-                if is_empty(cor(self.board,pos)) == False:
+                if checkempty(self.board) > 1:
                     return False
         return True
 
@@ -247,8 +253,10 @@ class solitaire(Problem):
         acth = board_moves(node.state.board)
         return len(acth)
 
-def greedy_search(solitaire):
-        return best_first_graph_search(solitaire, solitaire.h)
+def greedy_search(problem, h=None):
+    """f(n) = h(n)"""
+    h = memoize(h or problem.h, 'h')
+    return best_first_graph_search(problem, h)
 
 '''
 - Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.
