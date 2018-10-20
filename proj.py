@@ -217,7 +217,7 @@ class sol_state:
         for i in range(0,linhastab(self.board)):
             for j in range(0,colunastab(self.board)):
                 pos = make_pos(i,j)
-                if is_empty(cor(self.board,pos)) == False:
+                if checkempty(self.board) > 1:
                     return False
         return True
 
@@ -247,10 +247,20 @@ class solitaire(Problem):
         acth = board_moves(node.state.board)
         return len(acth)
 
-def greedy_search(solitaire):
-        return best_first_graph_search(solitaire, solitaire.h)
+def greedy_search(problem, h=None):
+    """f(n) = h(n)"""
+    h = memoize(h or problem.h, 'h')
+    return best_first_graph_search(problem, h)
 
-
+def checkempty(tab):
+    count = 0
+    for i in range(0,linhastab(tab)):
+        for j in range(0,colunastab(tab)):
+            pos = make_pos(i,j) 
+            if (is_peg(cor(tab,pos))):
+                count = count + 1
+    return count
+        
 '''
 - Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.
 - Procura em profundidade é preferível, pois já sabemos que o máximo de profundidade que a árvore vai ter é N, sendo N o número de peças.
