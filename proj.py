@@ -1,6 +1,14 @@
+#83502 Mafalda Mendes
+#86473 Margarida Morais
+#Grupo23
+
+
 import copy
 from search import *
 from utils import *
+from time import clock
+from random import randint
+from timeit import default_timer as timer
 
 
 #TAI content
@@ -223,11 +231,38 @@ class solitaire(Problem):
         acth = board_moves(node.state.board)
         return len(acth)
 
+
+Table1=[["_","O","O","O","_"],["O","_","O","_","O"], ["_","O","_","O","_"],["O","_","O","_","_"],["_","O","_","_","_"]] 
+Table2=[["O","O","O","X"],["O","O","O","O"],["O","_","O","O"],["O","O","O","O"]] 
+Table3=[["O","O","O","X","X"],["O","O","O","O","O"],["O","_","O","_","O"],["O","O","O","O","O"]]
+Table4=[["O","O","O","X","X","X"],["O","_","O","O","O","O"],["O","O","O","O","O","O"],["O","O","O","O","O","O"]]
+Tables=[Table1,Table2,Table3,Table4]
+
 def greedy_search(problem, h=None):
     """f(n) = h(n)"""
     h = memoize(h or problem.h, 'h')
     return best_first_graph_search(problem, h)
 
+def player(board,searcher):
+    problem = same_game(board)
+    result = searcher(problem)
+    return result
+
+def run_tests(boards):
+    searchers=[depth_first_tree_search,greedy_search,astar_search]
+    for board in boards:
+        problem = same_game(board)
+        for searcher in searchers:
+            p = InstrumentedProblem(problem)
+            start = clock()
+            searcher(p)
+            end = clock()
+            print('{0:} {1:} {2:}'.format(p.succs,p.states,end-start))
+    
+
+#depth_first_tree_search(problem)
+#astar_search(problem)
+#greedy_best_first_graph_search(problem,h)
         
 '''
 - Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.
