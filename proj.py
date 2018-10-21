@@ -53,17 +53,6 @@ def lista(tab,pos):
     return False
 
 def grupo(final,group):
-    for i in final:
-        if len(i) == 1:
-            if i == group:
-                return True
-        if isinstance(i,list):
-            for j in i:
-                if j == group:
-                    return True
-        else:
-            if i == group:
-                return True
     for i in range(0,len(group)):
         if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
             return False
@@ -71,18 +60,15 @@ def grupo(final,group):
             del group[i]
             return False            
 
-    if len(group) >= 1:
-        group = group[0]
-    return False
-
+   
 def possiveisgruposlinhas(tab, pos, group):
-
+    print(pos)
 
     linha = pos_l(pos)
     coluna = pos_c(pos)
 
-    if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1):
-        return
+    #if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1):
+        #return
 
     #procuraesquerda
     colunacomp=coluna -2
@@ -146,6 +132,29 @@ def possiveisgruposlinhas(tab, pos, group):
 
     return group
 
+def board_perform_move(tab, move):
+    res = []
+    res = copy.deepcopy(tab)
+    initial_pos = move_initial(move)
+    final_pos = move_final(move)
+    
+
+        #print(res)
+    if(pos_c(initial_pos) != pos_c(final_pos)):
+        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+        
+        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
+        
+        res[pos_l(final_pos)][(int((pos_c(final_pos) + pos_c(initial_pos))/2.0))] = '_'
+
+    elif(pos_l(initial_pos) != pos_l(final_pos)):
+        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
+
+        res[(int((pos_l(final_pos) + pos_l(initial_pos))/2.0))][pos_c(final_pos)] = '_'
+            
+    #print(res[pos_l(initial_pos)][pos_c(initial_pos) + 1])        
+    return res
 
 
 
@@ -158,47 +167,9 @@ def board_moves(tab):
                 group = [pos]
                 group = possiveisgruposlinhas(tab,pos,group)
                 if grupo(final,group) == False:
-
-                    #print("entrei")
                     final += group
-
-
     return final
-
-def board_perform_move(tab, move):
-    res = []
-    res = copy.deepcopy(tab)
-    
-    initial_pos = move_initial(move)
-    final_pos = move_final(move)
-    
-    pos_l_initial= pos_l(initial_pos)
-    pos_l_final= pos_l(final_pos)
-    pos_c_initial= pos_c(initial_pos)
-    pos_c_final = pos_c(final_pos)
-    
-    res[pos_l_initial][pos_c_initial] = '_'
-    res[pos_l_final][pos_c_final] = 'O'
-    
-    
-    if(pos_l_initial == pos_l_final and pos_c_initial != pos_c_final):
-        
-        if( pos_c_initial > pos_c_final):
-            res[pos_l_initial][pos_c_initial - 1] = '_'
-
-        else:
-            res[pos_l_initial][pos_c_initial+ 1] = '_'
-
-    elif(pos_l_initial != pos_l_final and pos_c_initial == pos_c_final):
-
-        if(pos_l_initial > pos_l_final):
-            res[pos_l_initial - 1][pos_c_initial] = '_'
-
-        else:
-            res[pos_l_initial + 1][pos_c_initial] = '_'
-
-    return res
-
+     
 def checkempty(tab):
     count = 0
     for i in range(0,linhastab(tab)):
@@ -213,14 +184,8 @@ class sol_state:
         self.board = board
 
     def actions_aux(self): 
-        find = []
-        find= copy.deepcopy(board_moves(self.board))
-        actions = []
-        for i in find:
-            if len(i) > 1:
-                actions += [i]
-        return actions
-
+        return board_moves(self.board)
+        
     def act_size(self):
         return len(self.actions_aux())
 
@@ -263,12 +228,6 @@ def greedy_search(problem, h=None):
     h = memoize(h or problem.h, 'h')
     return best_first_graph_search(problem, h)
 
-def astar_search(problem, h=None):
-    """A* search is best-first graph search with f(n) = g(n)+h(n).
-    You need to specify the h function when you call astar_search, or
-    else in your Problem subclass."""
-    h = memoize(h or problem.h, 'h')
-    return best_first_graph_search(problem, lambda n: n.path_cost + h(n))
         
 '''
 - Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.
