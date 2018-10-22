@@ -179,17 +179,7 @@ def checkblocked(tab):
                 count = count + 1
     return count 
 
-def total(tab):
-    count = 0
-    for i in range(0,linhastab(tab)):
-        for j in range(0,colunastab(tab)):
-            pos = make_pos(i,j) 
-            count = count + 1
-    return count 
-                   
-                        
-
-        
+       
 def checkempty(tab):
     count = 0
     for i in range(0,linhastab(tab)):
@@ -198,17 +188,7 @@ def checkempty(tab):
             if (is_peg(cor(tab,pos))):
                 count = count + 1
     return count
-def possible(tab):
-    count = 0
-    res=[]
-    actions = board_moves(tab)
-    for i in actions:
-        print(i[0])
-        if(i[0] not in res):
-            count = count +1
-            res = res + [i[0]]
-            print (res)
-    return count
+
 class sol_state:
     def __init__(self,board):
         self.board = board
