@@ -1,14 +1,6 @@
-#83502 Mafalda Mendes
-#86473 Margarida Morais
-#Grupo23
-
-
 import copy
 from search import *
 from utils import *
-from time import clock
-from random import randint
-from timeit import default_timer as timer
 
 
 #TAI content
@@ -70,7 +62,7 @@ def grupo(final,group):
 
    
 def possiveisgruposlinhas(tab, pos, group):
-    print(pos)
+
 
     linha = pos_l(pos)
     coluna = pos_c(pos)
@@ -177,7 +169,27 @@ def board_moves(tab):
                 if grupo(final,group) == False:
                     final += group
     return final
-     
+
+def checkblocked(tab):
+    count = 0
+    for i in range(0,linhastab(tab)):
+        for j in range(0,colunastab(tab)):
+            pos = make_pos(i,j) 
+            if (is_blocked(cor(tab,pos))):
+                count = count + 1
+    return count 
+
+def total(tab):
+    count = 0
+    for i in range(0,linhastab(tab)):
+        for j in range(0,colunastab(tab)):
+            pos = make_pos(i,j) 
+            count = count + 1
+    return count 
+                   
+                        
+
+        
 def checkempty(tab):
     count = 0
     for i in range(0,linhastab(tab)):
@@ -186,7 +198,17 @@ def checkempty(tab):
             if (is_peg(cor(tab,pos))):
                 count = count + 1
     return count
-
+def possible(tab):
+    count = 0
+    res=[]
+    actions = board_moves(tab)
+    for i in actions:
+        print(i[0])
+        if(i[0] not in res):
+            count = count +1
+            res = res + [i[0]]
+            print (res)
+    return count
 class sol_state:
     def __init__(self,board):
         self.board = board
@@ -228,52 +250,15 @@ class solitaire(Problem):
         return c + 1
 
     def h(self, node):
-        acth = board_moves(node.state.board)
-        return len(acth)
-
-
-Table1=[["_","O","O","O","_"],["O","_","O","_","O"], ["_","O","_","O","_"],["O","_","O","_","_"],["_","O","_","_","_"]] 
-Table2=[["O","O","O","X"],["O","O","O","O"],["O","_","O","O"],["O","O","O","O"]] 
-Table3=[["O","O","O","X","X"],["O","O","O","O","O"],["O","_","O","_","O"],["O","O","O","O","O"]]
-Table4=[["O","O","O","X","X","X"],["O","_","O","O","O","O"],["O","O","O","O","O","O"],["O","O","O","O","O","O"]]
-Tables=[Table1,Table2,Table3,Table4]
+        blocked = checkblocked(node.state.board)
+        pec = checkempty(node.state.board)
+        val = pec *  blocked
+        return val
+        
 
 def greedy_search(problem, h=None):
     """f(n) = h(n)"""
     h = memoize(h or problem.h, 'h')
     return best_first_graph_search(problem, h)
 
-def player(board,searcher):
-    problem = same_game(board)
-    result = searcher(problem)
-    return result
-
-def run_tests(boards):
-    searchers=[depth_first_tree_search,greedy_search,astar_search]
-    for board in boards:
-        problem = same_game(board)
-        for searcher in searchers:
-            p = InstrumentedProblem(problem)
-            start = clock()
-            searcher(p)
-            end = clock()
-            print('{0:} {1:} {2:}'.format(p.succs,p.states,end-start))
-    
-
-#depth_first_tree_search(problem)
-#astar_search(problem)
-#greedy_best_first_graph_search(problem,h)
         
-'''
-- Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.
-- Procura em profundidade é preferível, pois já sabemos que o máximo de profundidade que a árvore vai ter é N, sendo N o número de peças.
-- Qual é uma heurística boa para conseguir encontrar a solução otima??? Por exemplo, se a heuristica for ter uma peça a menos em cada jogada, não é uma
-heurística, uma vez que em cada jogada é sempre retirada uma peça independentemente de ser uma jogada boa ou má...
-- Para motivos do relatório, podemos ter várias heurísticas para podermos experimentar.
-
-game = Solitaire(board)
-p = InstrumentedProblem(game)
-result = depth_first_search(p)
-result = greedy_best_first_graph_search(p, p.h -> h é a heurística)
-result = astar.search(p, p.h -> não é obrigatório, mas podemos ter uma heurística diferente da que está implementada na função)
-'''
