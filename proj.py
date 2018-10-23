@@ -1,3 +1,277 @@
+Report #1
+Submission	00634395_Entrega1_al023
+File	proj.py [Download]
+Received	Tue Oct 23 00:34:37 WEST 2018
+Analyzed	Tue Oct 23 00:34:38 WEST 2018 (0:00:01)
+Team	al023 Login: al023 Group: AL [AL]
+Language	Python
+Problem	A: Entrega1
+Compilation
+Test	Expected	Obtained	Differences
+test01
+T=0.036 sec
+E=0 sec
+M=3404 Kb
+
+[[(0,[]2),[](0,[]0)],[][(0,[]2),[](0,[]4)],[][(0,[]2),[](2,[]2)]]\n
+[[(0,[]2),[](0,[]0)],[][(0,[]2),[](0,[]4)],[][(0,[]2),[](2,[]2)]]\n
+[[(0,[]2),[](0,[]0)],[][(0,[]2),[](0,[]4)],[][(0,[]2),[](2,[]2)]]\n
+test02
+T=0.036 sec
+E=0 sec
+M=3532 Kb
+
+[[(0,[]1),[](2,[]1)]]\n
+[[(0,[]1),[](2,[]1)]]\n
+[[(0,[]1),[](2,[]1)]]\n
+test03
+T=0.036 sec
+E=1 sec
+M=3404 Kb
+
+[[(0,[]2),[](0,[]0)],[][(0,[]2),[](0,[]4)],[][(0,[]2),[](2,[]2)],[][(1,[]3),[](1,[]1)],[][(1,[]3),[](3,[]3)]]\n
+[[(0,[]2),[](0,[]0)],[][(0,[]2),[](0,[]4)],[][(0,[]2),[](2,[]2)],[][(1,[]3),[](1,[]1)],[][(1,[]3),[](3,[]3)]]\n
+[[(0,[]2),[](0,[]0)],[][(0,[]2),[](0,[]4)],[][(0,[]2),[](2,[]2)],[][(1,[]3),[](1,[]1)],[][(1,[]3),[](3,[]3)]]\n
+test04
+T=0.032 sec
+E=0 sec
+M=3148 Kb
+
+[[(1,[]3),[](1,[]1)],[][(3,[]1),[](1,[]1)]]\n
+[[(1,[]3),[](1,[]1)],[][(3,[]1),[](1,[]1)]]\n
+[[(1,[]3),[](1,[]1)],[][(3,[]1),[](1,[]1)]]\n
+test05
+T=0.036 sec
+E=0 sec
+M=3404 Kb
+
+[[(0,[]0),[](0,[]2)],[][(0,[]0),[](2,[]0)],[][(1,[]3),[](1,[]1)],[][(2,[]1),[](2,[]3)],[][(2,[]2),[](0,[]2)],[][(2,[]2),[](2,[]0)],[][(2,[]5),[](2,[]3)],[][(3,[]1),[](1,[]1)],[][(3,[]1),[](3,[]3)],[][(3,[]5),[](3,[]3)]]\n
+[[(0,[]0),[](0,[]2)],[][(0,[]0),[](2,[]0)],[][(1,[]3),[](1,[]1)],[][(2,[]1),[](2,[]3)],[][(2,[]2),[](0,[]2)],[][(2,[]2),[](2,[]0)],[][(2,[]5),[](2,[]3)],[][(3,[]1),[](1,[]1)],[][(3,[]1),[](3,[]3)],[][(3,[]5),[](3,[]3)]]\n
+[[(0,[]0),[](0,[]2)],[][(0,[]0),[](2,[]0)],[][(1,[]3),[](1,[]1)],[][(2,[]1),[](2,[]3)],[][(2,[]2),[](0,[]2)],[][(2,[]2),[](2,[]0)],[][(2,[]5),[](2,[]3)],[][(3,[]1),[](1,[]1)],[][(3,[]1),[](3,[]3)],[][(3,[]5),[](3,[]3)]]\n
+test06
+T=0.028 sec
+E=0 sec
+M=3148 Kb
+
+[]\n
+[]\n
+[]\n
+test07
+T=0.028 sec
+E=1 sec
+M=3148 Kb
+
+[[(0,[]0),[](0,[]2)],[][(0,[]0),[](2,[]0)],[][(1,[]2),[](3,[]2)],[][(1,[]3),[](1,[]1)],[][(2,[]1),[](2,[]3)],[][(2,[]2),[](0,[]2)],[][(2,[]2),[](2,[]0)],[][(2,[]5),[](2,[]3)],[][(3,[]0),[](3,[]2)],[][(3,[]1),[](1,[]1)]]\n
+[[(0,[]0),[](0,[]2)],[][(0,[]0),[](2,[]0)],[][(1,[]2),[](3,[]2)],[][(1,[]3),[](1,[]1)],[][(2,[]1),[](2,[]3)],[][(2,[]2),[](0,[]2)],[][(2,[]2),[](2,[]0)],[][(2,[]5),[](2,[]3)],[][(3,[]0),[](3,[]2)],[][(3,[]1),[](1,[]1)]]\n
+[[(0,[]0),[](0,[]2)],[][(0,[]0),[](2,[]0)],[][(1,[]2),[](3,[]2)],[][(1,[]3),[](1,[]1)],[][(2,[]1),[](2,[]3)],[][(2,[]2),[](0,[]2)],[][(2,[]2),[](2,[]0)],[][(2,[]5),[](2,[]3)],[][(3,[]0),[](3,[]2)],[][(3,[]1),[](1,[]1)]]\n
+test08
+T=0.036 sec
+E=0 sec
+M=3404 Kb
+
+[[(1,[]3),[](1,[]1)]]\n
+[[(1,[]3),[](1,[]1)]]\n
+[[(1,[]3),[](1,[]1)]]\n
+test09
+T=0.024 sec
+E=0 sec
+M=3148 Kb
+
+[['O',[]'_',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+[['O',[]'_',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+[['O',[]'_',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+test10
+T=0.036 sec
+E=0 sec
+M=3148 Kb
+
+[['O',[]'_',[]'O',[]'X',[]'X'],[]['O',[]'_',[]'O',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'_',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O']]\n
+[['O',[]'_',[]'O',[]'X',[]'X'],[]['O',[]'_',[]'O',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'_',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O']]\n
+[['O',[]'_',[]'O',[]'X',[]'X'],[]['O',[]'_',[]'O',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'_',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O']]\n
+test11
+T=0.028 sec
+E=1 sec
+M=3404 Kb
+
+[['_',[]'O',[]'O',[]'O',[]'_'],[]['O',[]'O',[]'_',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+[['_',[]'O',[]'O',[]'O',[]'_'],[]['O',[]'O',[]'_',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+[['_',[]'O',[]'O',[]'O',[]'_'],[]['O',[]'O',[]'_',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+test12
+T=0.012 sec
+E=0 sec
+M=3404 Kb
+
+[['O',[]'O',[]'O',[]'X',[]'X',[]'X'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'_',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'_',[]'O',[]'O',[]'O',[]'O']]\n
+[['O',[]'O',[]'O',[]'X',[]'X',[]'X'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'_',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'_',[]'O',[]'O',[]'O',[]'O']]\n
+[['O',[]'O',[]'O',[]'X',[]'X',[]'X'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'_',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'_',[]'O',[]'O',[]'O',[]'O']]\n
+test13
+T=0.028 sec
+E=0 sec
+M=3404 Kb
+
+True\n
+True\n
+True\n
+test14
+T=0.028 sec
+E=0 sec
+M=3548 Kb
+
+[['_',[]'O',[]'O',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+[['_',[]'O',[]'O',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+[['_',[]'O',[]'O',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['_',[]'O',[]'_',[]'_',[]'_']]\n
+test15
+T=0.028 sec
+E=0 sec
+M=3404 Kb
+
+False\n
+False\n
+False\n
+test16
+T=0.024 sec
+E=0 sec
+M=3404 Kb
+
+True\n
+True\n
+True\n
+test17
+T=0.024 sec
+E=0 sec
+M=3148 Kb
+
+True\n
+True\n
+True\n
+test18
+T=0.028 sec
+E=0 sec
+M=3404 Kb
+
+True\n
+True\n
+True\n
+test19
+T=0.032 sec
+E=0 sec
+M=3148 Kb
+
+[['X',[]'O',[]'O',[]'O',[]'X'],[]['O',[]'O',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['X',[]'O',[]'_',[]'_',[]'X']]\n
+[['X',[]'O',[]'O',[]'O',[]'X'],[]['O',[]'O',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['X',[]'O',[]'_',[]'_',[]'X']]\n
+[['X',[]'O',[]'O',[]'O',[]'X'],[]['O',[]'O',[]'O',[]'_',[]'O'],[]['_',[]'O',[]'_',[]'O',[]'_'],[]['O',[]'_',[]'O',[]'_',[]'_'],[]['X',[]'O',[]'_',[]'_',[]'X']]\n
+test20
+T=0.036 sec
+E=1 sec
+M=3404 Kb
+
+[[(0,[]2),[](2,[]2)],[][(1,[]1),[](1,[]3)],[][(1,[]1),[](3,[]1)]]\n
+[[(0,[]2),[](2,[]2)],[][(1,[]1),[](1,[]3)],[][(1,[]1),[](3,[]1)]]\n
+[[(0,[]2),[](2,[]2)],[][(1,[]1),[](1,[]3)],[][(1,[]1),[](3,[]1)]]\n
+test21
+T=0.024 sec
+E=0 sec
+M=3404 Kb
+
+[]\n
+[]\n
+[]\n
+test22
+T=0.028 sec
+E=0 sec
+M=3404 Kb
+
+False\n
+False\n
+False\n
+test23
+T=0.028 sec
+E=0 sec
+M=3404 Kb
+
+False\n
+False\n
+False\n
+test24
+T=0.036 sec
+E=0 sec
+M=3772 Kb
+
+True\n
+True\n
+True\n
+test25
+T=0.032 sec
+E=0 sec
+M=3772 Kb
+
+[['X',[]'O',[]'_',[]'O',[]'X'],[]['O',[]'_',[]'_',[]'_',[]'O'],[]['_',[]'_',[]'_',[]'_',[]'O'],[]['_',[]'_',[]'O',[]'_',[]'O'],[]['X',[]'O',[]'O',[]'O',[]'X']]\n
+[['X',[]'O',[]'_',[]'O',[]'X'],[]['O',[]'_',[]'_',[]'_',[]'O'],[]['_',[]'_',[]'_',[]'_',[]'O'],[]['_',[]'_',[]'O',[]'_',[]'O'],[]['X',[]'O',[]'O',[]'O',[]'X']]\n
+[['X',[]'O',[]'_',[]'O',[]'X'],[]['O',[]'_',[]'_',[]'_',[]'O'],[]['_',[]'_',[]'_',[]'_',[]'O'],[]['_',[]'_',[]'O',[]'_',[]'O'],[]['X',[]'O',[]'O',[]'O',[]'X']]\n
+test26
+T=0.028 sec
+E=0 sec
+M=3404 Kb
+
+[['O',[]'O',[]'O',[]'X',[]'X',[]'X'],[]['O',[]'O',[]'_',[]'_',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O']]\n
+[['O',[]'O',[]'O',[]'X',[]'X',[]'X'],[]['O',[]'O',[]'_',[]'_',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O']]\n
+[['O',[]'O',[]'O',[]'X',[]'X',[]'X'],[]['O',[]'O',[]'_',[]'_',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O'],[]['O',[]'O',[]'O',[]'O',[]'O',[]'O']]\n
+test27
+T=0.036 sec
+E=0 sec
+M=3148 Kb
+
+False\n
+False\n
+False\n
+test28
+T=0.088 sec
+E=1 sec
+M=4160 Kb
+
+None\n
+None\n
+None\n
+test29
+T=1.180 sec
+E=2 sec
+M=4160 Kb
+
+False\n
+False\n
+False\n
+test30
+T=6.376 sec
+E=13 sec
+M=14404 Kb
+
+False\n
+False\n
+False\n
+test31
+T=6.500 sec
+E=13 sec
+M=14404 Kb
+
+False\n
+False\n
+False\n
+test32
+T=18.333 sec
+E=37 sec
+M=27204 Kb
+
+False\n
+False\n
+False\n
+CPU	18.333 (37) sec
+Memory	27204 kbytes
+Classification	Accepted
+Mark	32
+Observations
+Feedback
+{32 testes com Accepted}
+Code
 import copy
 from search import *
 from utils import *
@@ -53,17 +327,6 @@ def lista(tab,pos):
     return False
 
 def grupo(final,group):
-    for i in final:
-        if len(i) == 1:
-            if i == group:
-                return True
-        if isinstance(i,list):
-            for j in i:
-                if j == group:
-                    return True
-        else:
-            if i == group:
-                return True
     for i in range(0,len(group)):
         if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
             return False
@@ -71,9 +334,6 @@ def grupo(final,group):
             del group[i]
             return False
 
-    if len(group) >= 1:
-        group = group[0]
-    return False
 
 def possiveisgruposlinhas(tab, pos, group):
 
@@ -81,8 +341,8 @@ def possiveisgruposlinhas(tab, pos, group):
     linha = pos_l(pos)
     coluna = pos_c(pos)
 
-    if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1):
-        return
+    #if ((coluna < 0 or linha < 0) or linha > linhastab(tab)-1 or coluna > colunastab(tab)-1):
+        #return
 
     #procuraesquerda
     colunacomp=coluna -2
@@ -146,6 +406,29 @@ def possiveisgruposlinhas(tab, pos, group):
 
     return group
 
+def board_perform_move(tab, move):
+    res = []
+    res = copy.deepcopy(tab)
+    initial_pos = move_initial(move)
+    final_pos = move_final(move)
+
+
+        #print(res)
+    if(pos_c(initial_pos) != pos_c(final_pos)):
+        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+
+        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
+
+        res[pos_l(final_pos)][(int((pos_c(final_pos) + pos_c(initial_pos))/2.0))] = '_'
+
+    elif(pos_l(initial_pos) != pos_l(final_pos)):
+        res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
+        res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
+
+        res[(int((pos_l(final_pos) + pos_l(initial_pos))/2.0))][pos_c(final_pos)] = '_'
+
+    #print(res[pos_l(initial_pos)][pos_c(initial_pos) + 1])
+    return res
 
 
 
@@ -158,40 +441,20 @@ def board_moves(tab):
                 group = [pos]
                 group = possiveisgruposlinhas(tab,pos,group)
                 if grupo(final,group) == False:
-
-                    #print("entrei")
                     final += group
-
-
     return final
 
-def board_perform_move(tab, move):
-    res = []
-    res = copy.deepcopy(tab)
-    initial_pos = move_initial(move)
-    final_pos = move_final(move)
-    res[pos_l(initial_pos)][pos_c(initial_pos)] = '_'
-    res[pos_l(final_pos)][pos_c(final_pos)] = 'O'
+def checkblocked(tab):
+    count = 0
+    for i in range(0,linhastab(tab)):
+        for j in range(0,colunastab(tab)):
+            pos = make_pos(i,j)
+            if (is_blocked(cor(tab,pos))):
+                count = count + 1
+    return count
 
-    if(pos_l(initial_pos) == pos_l(final_pos) and pos_c(initial_pos) != pos_c(final_pos)):
 
-        if(pos_c(initial_pos) > pos_c(final_pos)):
-            res[pos_l(initial_pos)][pos_c(initial_pos) - 1] = '_'
-
-        else:
-            res[pos_l(initial_pos)][pos_c(initial_pos) + 1] = '_'
-
-    elif(pos_l(initial_pos) != pos_l(final_pos) and pos_c(initial_pos) == pos_c(final_pos)):
-
-        if(pos_l(initial_pos) > pos_l(final_pos)):
-            res[pos_l(initial_pos) - 1][pos_c(initial_pos)] = '_'
-
-        else:
-            res[pos_l(initial_pos) + 1][pos_c(initial_pos)] = '_'
-
-    return res
-
-def checkempty(tab):
+def check_occupied(tab):
     count = 0
     for i in range(0,linhastab(tab)):
         for j in range(0,colunastab(tab)):
@@ -204,14 +467,8 @@ class sol_state:
     def __init__(self,board):
         self.board = board
 
-    def actions_aux(self): #idk
-        find = []
-        find= copy.deepcopy(board_moves(self.board))
-        actions = []
-        for i in find:
-            if len(i) > 1:
-                actions += [i]
-        return actions
+    def actions_aux(self):
+        return board_moves(self.board)
 
     def act_size(self):
         return len(self.actions_aux())
@@ -220,11 +477,8 @@ class sol_state:
         return self.act_size()  > other_state.act_size()
 
     def test(self):
-        for i in range(0,linhastab(self.board)):
-            for j in range(0,colunastab(self.board)):
-                pos = make_pos(i,j)
-                if checkempty(self.board) > 1:
-                    return False
+        if check_occupied(self.board) > 1:
+            return False
         return True
 
     def result_aux(self,action):
@@ -250,8 +504,11 @@ class solitaire(Problem):
         return c + 1
 
     def h(self, node):
-        acth = board_moves(node.state.board)
-        return len(acth)
+        blocked = checkblocked(node.state.board)
+        pec = check_npot(node.state.board)
+        val = pec *  blocked
+        return val
+
 
 def greedy_search(problem, h=None):
     """f(n) = h(n)"""
