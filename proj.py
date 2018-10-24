@@ -266,13 +266,11 @@ board4 =\
 ["O","O","O","O","O","O"]]
 
 problems = [solitaire(board1), solitaire(board2), solitaire(board3), solitaire(board4)]
-searchers = [depth_first_graph_search, astar_search]
+searchers = [greedy_search]
 header = None
 
 def compare_searchers(problems, header, searchers):
     def do(searcher, problem):
-        if(searcher == depth_first_graph_search and problem == solitaire(board4)):
-            return('Time limit exceeded')
         p = InstrumentedProblem(problem)
         searcher(p)
         print('done')
