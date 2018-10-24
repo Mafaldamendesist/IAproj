@@ -1,4 +1,5 @@
 import copy
+import time
 from search import *
 from utils import *
 
@@ -238,6 +239,53 @@ def greedy_search(problem, h=None):
     """f(n) = h(n)"""
     h = memoize(h or problem.h, 'h')
     return best_first_graph_search(problem, h)
+
+board1 =\
+[["_","O","O","O","_"],\
+["O","_","O","_","O"],\
+["_","O","_","O","_"],\
+["O","_","O","_","_"],\
+["_","O","_","_","_"]]
+
+board2 =\
+[["O","O","O","X"],\
+["O","O","O","O"],\
+["O","_","O","O"],\
+["O","O","O","O"]]
+
+board3 =\
+[["O","O","O","X","X"],\
+["O","O","O","O","O"],\
+["O","_","O","_","O"],\
+["O","O","O","O","O"]]
+
+board4 =\
+[["O","O","O","X","X","X"],\
+["O","_","O","O","O","O"],\
+["O","O","O","O","O","O"],\
+["O","O","O","O","O","O"]]
+
+problems = [solitaire(board1), solitaire(board2), solitaire(board3), solitaire(board4)]
+searchers = [depth_first_graph_search, astar_search]
+header = None
+
+def compare_searchers(problems, header, searchers):
+    def do(searcher, problem):
+        if(searcher == depth_first_graph_search and problem == solitaire(board4)):
+            return('Time limit exceeded')
+        p = InstrumentedProblem(problem)
+        searcher(p)
+        print('done')
+        return p
+    table = [[name(s)] + [do(s, p) for p in problems] for s in searchers]
+    print_table(table, header)
+
+
+def compare_graph_searchers():
+    compare_searchers(problems, header, searchers)
+
+compare_graph_searchers()
+
 
 '''
 - Procura em largura primeiro não deve ser usada aqui, para problemas simples vai resultar, mas para problemas mais complexos não irá funcionar.

@@ -15,6 +15,7 @@ import math
 import random
 import sys
 import bisect
+import time
 
 infinity = float('inf')
 
@@ -1276,6 +1277,7 @@ class InstrumentedProblem(Problem):
         self.problem = problem
         self.succs = self.goal_tests = self.states = 0
         self.found = None
+        self.time = time.clock()
 
     def actions(self, state):
         self.succs += 1
@@ -1290,6 +1292,7 @@ class InstrumentedProblem(Problem):
         result = self.problem.goal_test(state)
         if result:
             self.found = state
+            self.time = time.clock() - self.time
         return result
 
     def path_cost(self, c, state1, action, state2):
@@ -1302,8 +1305,8 @@ class InstrumentedProblem(Problem):
         return getattr(self.problem, attr)
 
     def __repr__(self):
-        return '<{:4d}/{:4d}/{:4d}/{}>'.format(self.succs, self.goal_tests,
-                                               self.states, str(self.found)[:4])
+        return '<{:4d}/{:4d}/{:4d}/{:.3f}>'.format(self.succs, self.goal_tests,
+                                               self.states, self.time)
 
 
 def compare_searchers(problems, header,
