@@ -1,0 +1,8 @@
+search_name	<numero de jogadas possiveis/ numero de verificações de objetivo/ numero de jogadas feitas/ tempo de execução>
+
+
+best_first_graph_search   <  11/  13/  19/0.000000>   <  53/  55/  78/0.015625>   <21872/21874/21912/4.593750>   <1729/1731/1810/0.593750>
+
+astar_search              <  11/  13/  19/0.000000>   <  53/  55/  78/0.015625>   <21872/21874/21912/4.500000>   <1729/1731/1810/0.562500>    
+
+depth_first_graph_search   <  12/  13/  20/0.015625>   <5984/5985/6002/0.640625>   <53636/53637/53664/7.375000>   <14760524/14760525/14760576/3065.750000> 
