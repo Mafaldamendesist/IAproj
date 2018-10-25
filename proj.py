@@ -224,7 +224,7 @@ class solitaire(Problem):
         return c + 1
 
     def h(self, node):
-        '''if(node.state.action == None):
+        if(node.state.action == None):
             return 0
 
         #primeira heuristica
@@ -236,51 +236,12 @@ class solitaire(Problem):
         if(pos_l(pos_final) == linhastab(node.state.board) or \
         pos_c(pos_final) == colunastab(node.state.board) or \
         pos_l(pos_final) == 0 or pos_c(pos_final) == 0):
-            points = points * 1.8
+            points = points * 0.8
 
-        #terceira heuristica
-        if(len(board_moves(self.initial.board)) > len(board_moves(node.state.board)) and check_occupied(node.state.board) < (linhastab(node.state.board)*colunastab(node.state.board)/2)):
-            points = points * 1.5
-
-        nr_moves = len(board_moves(node.state.board))
-        if(nr_moves > 0):
-            points = points * (1/nr_moves)
-
-        return points'''
-
-        #if(node.state.action == None):
-        #    return check_occupied(node.state.board) * 100
-
-        points = check_occupied(node.state.board) * 100
-
-        if(node.state.action != None):
-            pos_final = move_final(node.state.action)
-
-            if(pos_l(pos_final) == linhastab(node.state.board) or \
-            pos_c(pos_final) == colunastab(node.state.board) or \
-            pos_l(pos_final) == 0 or pos_c(pos_final) == 0):
-                points = points * 1.8
-        
-        elif(node.state.action != None and goal_test(node.state.board) == False):
-            points = points * 1.8
-
-        peg = check_occupied(node.state.board)
-        points = points * peg 
 
         return points
 
-'''board1 =\
-[["_","O","O","O","_"],\
-["O","_","O","_","O"],\
-["_","O","_","O","_"],\
-["O","_","O","_","_"],\
-["_","O","_","_","_"]]
-
-game = solitaire(board1)
-p = InstrumentedProblem(game)
-result = astar_search(p, p.h)'''
-
-#Boards and functions to test the complexity of the algorithms used
+'''#Boards and functions to test the complexity of the algorithms used
 
 board1 =\
 [["_","O","O","O","_"],\
@@ -328,4 +289,4 @@ def compare_searchers(problems, header, searchers):
 def compare_graph_searchers():
     compare_searchers(problems, header, searchers)
 
-compare_graph_searchers()
+compare_graph_searchers()'''
