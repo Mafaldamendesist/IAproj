@@ -241,7 +241,7 @@ class solitaire(Problem):
 
         return points
 
-'''#Boards and functions to test the complexity of the algorithms used
+#Boards and functions to test the complexity of the algorithms used
 
 board1 =\
 [["_","O","O","O","_"],\
@@ -269,17 +269,17 @@ board4 =\
 ["O","O","O","O","O","O"]]
 
 problems = [solitaire(board1), solitaire(board2), solitaire(board3), solitaire(board4)]
-searchers = [greedy_best_first_graph_search, astar_search]
+searchers = [depth_first_graph_search]
 header = None
 
 def compare_searchers(problems, header, searchers):
     def do(searcher, problem):
         p = InstrumentedProblem(problem)
-        if(searcher == greedy_best_first_graph_search):
+        '''if(searcher == greedy_best_first_graph_search):
             searcher(p,p.h)
         else:
-            searcher(p)
-        #searcher(p)
+            searcher(p)'''
+        searcher(p)
         print('done')
         return p
     table = [[name(s)] + [do(s, p) for p in problems] for s in searchers]
@@ -289,4 +289,4 @@ def compare_searchers(problems, header, searchers):
 def compare_graph_searchers():
     compare_searchers(problems, header, searchers)
 
-compare_graph_searchers()'''
+compare_graph_searchers()
