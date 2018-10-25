@@ -1305,7 +1305,7 @@ class InstrumentedProblem(Problem):
         return getattr(self.problem, attr)
 
     def __repr__(self):
-        return '<{:4d}/{:4d}/{:4d}/{:.3f}>'.format(self.succs, self.goal_tests,
+        return '<{:4d}/{:4d}/{:4d}/{:.6f}>'.format(self.succs, self.goal_tests,
                                                self.states, self.time)
 
 
