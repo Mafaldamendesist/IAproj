@@ -49,12 +49,14 @@ def content(tab,pos):
     coluna = pos_c(pos)
     return tab[linha][coluna]
 
+#AuxFunction to check if pos is in tab
 def lista(tab,pos):
     for i in tab:
         if i == pos:
             return True
     return False
 
+#AuxFunction to check size of any item and if it is a tuple, in a group (list), and delete it
 def grupo(group):
     for i in range(0,len(group)):
         if(len(group[i]) == 2 and isinstance(group[i], tuple)==False):
@@ -63,7 +65,7 @@ def grupo(group):
             del group[i]
             return False
 
-
+#possible moves of a piece in a tab
 def possible_peg_moves(tab, pos, group):
     linha = pos_l(pos)
     coluna = pos_c(pos)
@@ -168,6 +170,7 @@ def board_moves(tab):
 
     return final
 
+#number of pieces in a board
 def check_occupied(tab):
     count = 0
 
