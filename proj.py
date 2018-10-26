@@ -241,13 +241,6 @@ class solitaire(Problem):
         pos_l(pos_final) == 0 or pos_c(pos_final) == 0):
             points = points * 0.8
 
-        #outra
-        moves = len(board_moves(node.state.board)) + 1
-        points = points * (1/moves)
-
-        #outra
-        
-
         return points
 
 #Boards and functions to test the complexity of the algorithms used
