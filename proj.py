@@ -231,7 +231,7 @@ class solitaire(Problem):
             return 0
 
         #primeira heuristica
-        points = check_occupied(node.state.board) * 100
+        points = check_occupied(node.state.board) * 500
 
         #segunda heuristica
         pos_final = move_final(node.state.action)
@@ -241,6 +241,12 @@ class solitaire(Problem):
         pos_l(pos_final) == 0 or pos_c(pos_final) == 0):
             points = points * 0.8
 
+        #outra
+        moves = len(board_moves(node.state.board)) + 1
+        points = points * (1/moves)
+
+        #outra
+        
 
         return points
 
@@ -272,7 +278,7 @@ board4 =\
 ["O","O","O","O","O","O"]]
 
 problems = [solitaire(board1), solitaire(board2), solitaire(board3), solitaire(board4)]
-searchers = [depth_first_graph_search]
+searchers = [astar_search]
 header = None
 
 def compare_searchers(problems, header, searchers):
